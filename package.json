@@ -1,0 +1,36 @@
+{
+  "name": "fakechats-video-generator",
+  "version": "1.0.0",
+  "description": "Automated tool for creating short-form videos by compositing chat screenshots over background videos",
+  "type": "module",
+  "main": "dist/cli.js",
+  "bin": {
+    "chatvid": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "dev": "tsx src/cli.ts",
+    "validate": "npm start validate my-video-project/project.json",
+    "render": "npm start render my-video-project/project.json"
+  },
+  "keywords": [
+    "video",
+    "chat",
+    "screenshots",
+    "ffmpeg",
+    "playwright"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "playwright": "^1.40.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}
+

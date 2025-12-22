@@ -1,0 +1,39 @@
+{
+  "bgVideo": "assets/bg.example.mp4",
+  "output": "out/final.mp4",
+  "fps": 30,
+  "resolution": {
+    "w": 1080,
+    "h": 1920
+  },
+  "chat": {
+    "theme": "ios",
+    "participants": [
+      { "id": "me", "name": "Me" },
+      { "id": "her", "name": "Her" }
+    ],
+    "messages": [
+      { "from": "her", "text": "Qué significa ese tatuaje?" },
+      { "from": "me", "text": "El tatuaje no... pero la modelo sí 😌" }
+    ]
+  },
+  "overlays": [
+    {
+      "messageIndex": 0,
+      "start": 0.5,
+      "end": 2.5,
+      "x": 80,
+      "y": 980,
+      "w": 920
+    },
+    {
+      "messageIndex": 1,
+      "start": 2.5,
+      "end": 5.0,
+      "x": 80,
+      "y": 980,
+      "w": 920
+    }
+  ]
+}
+
