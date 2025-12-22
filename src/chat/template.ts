@@ -14,9 +14,9 @@ export const chatTemplateHtml = `<!DOCTYPE html>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       background: transparent;
-      padding: 20px;
+      padding: 0;  // Changed from 20px
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;  // Changed from center
       align-items: flex-start;
       min-height: 100vh;
     }
@@ -24,9 +24,9 @@ export const chatTemplateHtml = `<!DOCTYPE html>
     .chat-container {
       background: rgba(255, 255, 255, 0.95);
       border-radius: 20px;
-      padding: 20px;
+      padding: 20px 0;  // Only vertical padding
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      max-width: 920px;
+      max-width: 100%;
       width: 100%;
       min-height: 200px;
     }
@@ -36,6 +36,7 @@ export const chatTemplateHtml = `<!DOCTYPE html>
       display: flex;
       flex-direction: column;
       animation: fadeIn 0.3s ease-in;
+      padding: 0 20px;  // Add horizontal padding to messages instead
     }
 
     @keyframes fadeIn {
@@ -63,7 +64,7 @@ export const chatTemplateHtml = `<!DOCTYPE html>
       border-radius: 18px;
       word-wrap: break-word;
       line-height: 1.4;
-      font-size: 16px;
+      font-size: 22px;  // Changed from 16px
     }
 
     .message.left .message-bubble {
@@ -79,7 +80,7 @@ export const chatTemplateHtml = `<!DOCTYPE html>
     }
 
     .message-sender {
-      font-size: 12px;
+      font-size: 14px;  // Changed from 12px
       color: #666;
       margin-bottom: 4px;
       padding: 0 4px;

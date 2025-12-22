@@ -158,11 +158,11 @@
     ]
   },
   "overlays": [
-    { "messageIndex": 0, "endMessageIndex": 0, "start": 0.5, "end": 1.5, "x": 80, "y": 280, "w": 920 },
-    { "messageIndex": 1, "endMessageIndex": 1, "start": 1.5, "end": 2.5, "x": 80, "y": 280, "w": 920 },
-    { "messageIndex": 1, "endMessageIndex": 2, "start": 2.5, "end": 3.5, "x": 80, "y": 280, "w": 920 },
-    { "messageIndex": 1, "endMessageIndex": 3, "start": 3.5, "end": 4.5, "x": 80, "y": 280, "w": 920 },
-    { "messageIndex": 1, "endMessageIndex": 4, "start": 4.5, "end": 5.5, "x": 80, "y": 280, "w": 920 },
-    { "messageIndex": 135, "endMessageIndex": 135, "start": 135.5, "end": 136.5, "x": 80, "y": 280, "w": 920 }
+    { "messageIndex": 0, "endMessageIndex": 0, "start": 0.5, "end": 1.5, "x": 30, "y": 600, "w": 1020 },
+    { "messageIndex": 1, "endMessageIndex": 1, "start": 1.5, "end": 2.5, "x": 30, "y": 600, "w": 1020 },
+    { "messageIndex": 1, "endMessageIndex": 2, "start": 2.5, "end": 3.5, "x": 30, "y": 600, "w": 1020 },
+    { "messageIndex": 1, "endMessageIndex": 3, "start": 3.5, "end": 4.5, "x": 30, "y": 600, "w": 1020 },
+    { "messageIndex": 1, "endMessageIndex": 4, "start": 4.5, "end": 5.5, "x": 30, "y": 600, "w": 1020 },
+    { "messageIndex": 135, "endMessageIndex": 135, "start": 135.5, "end": 136.5, "x": 30, "y": 600, "w": 1020 }
   ]
 }

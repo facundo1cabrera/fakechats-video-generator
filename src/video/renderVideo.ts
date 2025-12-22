@@ -21,15 +21,14 @@ export async function renderVideo(project: Project, projectDir: string): Promise
   const inputs: string[] = [];
   let currentLabel = 'base';
 
-  // Start with background video: scale and pad to target resolution
-  const aspectRatio = project.resolution.w / project.resolution.h;
-  // Scale to fit within target dimensions, maintaining aspect ratio
-  // Use -2 to maintain aspect ratio, then pad to exact size
+  // Start with background video: scale to fill width, then crop height
+  // Scale to target width, maintaining aspect ratio
   filters.push(
-    `[0:v]scale='min(${project.resolution.w}\\,iw)':'min(${project.resolution.h}\\,ih)':force_original_aspect_ratio=decrease[scaled]`
+    `[0:v]scale=${project.resolution.w}:-1:force_original_aspect_ratio=increase[scaled]`
   );
+  // Crop to exact target dimensions, centered vertically
   filters.push(
-    `[scaled]pad=${project.resolution.w}:${project.resolution.h}:(ow-iw)/2:(oh-ih)/2:black[${currentLabel}]`
+    `[scaled]crop=${project.resolution.w}:${project.resolution.h}:(iw-ow)/2:(ih-oh)/2[${currentLabel}]`
   );
 
   // Add each overlay

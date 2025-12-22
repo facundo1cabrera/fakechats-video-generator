@@ -2,6 +2,7 @@ import { chromium } from 'playwright';
 import type { Project, ChatConfig } from '../projectSchema.js';
 import { getScreenshotPath, getChatScreenshotsDir } from '../utils/paths.js';
 import { chatTemplateHtml } from './template.js';
+import sharp from 'sharp';
 
 export async function renderScreenshots(project: Project, projectDir: string): Promise<void> {
   const chatDir = getChatScreenshotsDir(projectDir);
@@ -22,7 +23,12 @@ export async function renderScreenshots(project: Project, projectDir: string): P
   console.log(`Rendering ${sortedKeys.length} chat screenshots...`);
 
   const browser = await chromium.launch();
-  const context = await browser.newContext();
+  const context = await browser.newContext({
+    viewport: {
+      width: project.resolution.w,
+      height: project.resolution.h
+    }
+  });
 
   try {
     for (const key of sortedKeys) {
@@ -48,11 +54,19 @@ export async function renderScreenshots(project: Project, projectDir: string): P
       await page.waitForTimeout(100);
 
       // Take screenshot with transparent background
-      await page.screenshot({
-        path: screenshotPath,
+      const screenshotBuffer = await page.screenshot({
         omitBackground: true,
         fullPage: false,
+        clip: await page.locator('#chatContainer').boundingBox() ?? undefined,  // Screenshot only the container
       });
+
+      // Trim transparent padding from the image
+      const trimmedBuffer = await sharp(screenshotBuffer)
+        .trim({ threshold: 0 }) // Trim all fully transparent pixels
+        .toBuffer();
+
+      // Write the trimmed image
+      await sharp(trimmedBuffer).toFile(screenshotPath);
 
       await page.close();
       console.log(`  ✓ Generated ${screenshotPath} (messages ${start}-${end})`);
